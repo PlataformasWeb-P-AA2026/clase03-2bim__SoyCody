@@ -3,14 +3,34 @@ Número de estudiantes {{ numero_estudiantes }}
 <hr>
 <br/>
 
-<ul>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
 
-{% for e in estudiantes %}
+    table, th, td {
+        border: 1px solid black;
+    }
+</style>
 
-  <li>{{e.id}} - {{ e.nombre }} - telefono {{ e.obtener_cantidad_nt }}</li>
-
-{% endfor %}
-
-</ul>
+<table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>nombre</th>
+            <th>telefonos</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for e in estudiantes %}
+        <tr>
+            <td>{{ e.id }}</td>
+            <td>{{ e.nombre }}</td>
+            <td>{{ e.obtener_cantidad_nt }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 
 <hr>

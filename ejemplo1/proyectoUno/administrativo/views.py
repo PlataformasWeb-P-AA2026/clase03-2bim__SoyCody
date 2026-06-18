@@ -47,12 +47,11 @@ def listadoEstudiantesDos(request):
     return render(request, 'listadoEstudiantesDos.html', informacion_template)
 
 
-def listadoEstudiantesPersoalizado(request):
+def listadoEstudiantesPersonalizado(request):
     estudiantes = Estudiante.objects.all()
     # en la variable tipo diccionario llamada informacion_template
     # se agregará la información que estará disponible
     # en el template
     titulo = "Listado de estudiantes de mi aplicación"
-    informacion_template = {'estudiantes': estudiantes,
-    'numero_estudiantes': len(estudiantes), 'mititulo': titulo}
+    informacion_template = {'estudiantes': estudiantes, 'mititulo': titulo}
     return render(request, 'listadoEstudiantesPersoalizado.html', informacion_template)
