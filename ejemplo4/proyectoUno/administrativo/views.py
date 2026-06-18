@@ -24,7 +24,8 @@ def index(request):
     # en la variable tipo diccionario llamada informacion_template
     # se agregará la información que estará disponible
     # en el template
-    informacion_template = {'estudiantes': estudiantes, 'numero_estudiantes': len(estudiantes)}
+    pais=Pais.objects.all()
+    informacion_template = {'estudiantes': estudiantes, 'numero_estudiantes': len(estudiantes), 'paises':pais}
     return render(request, 'index.html', informacion_template)
 
 
@@ -89,3 +90,21 @@ def eliminar_estudiante(request, id):
     estudiante = Estudiante.objects.get(pk=id)
     estudiante.delete()
     return redirect(index)
+
+def obtener_paises(request):
+    
+    return 0
+
+def crear_pais(request):
+    print(request)
+    if request.method=='POST':
+        formulario = PaisForm(request.POST)
+        print(formulario.errors)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect(index)
+    else:
+        formulario = PaisForm()
+    diccionario = {'formulario': formulario}
+
+    return render(request, 'crearPais.html', diccionario)

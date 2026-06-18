@@ -14,6 +14,17 @@
 
 {% endfor %} 
 </ul>
+<h2>Listado de Paises</h3>
+
+{% for e in pais %}
+    
+  Nombre: {{e.nombre}}  
+    <br/>
+  --------------------
+  <br/>
+{% endfor %}
+
+[<a href="{% url 'crear_pais' %}">agregar pais</a>]
 
 <br />
 [<a href="{% url 'crear_estudiante' %}">agregar estudiante</a>]
