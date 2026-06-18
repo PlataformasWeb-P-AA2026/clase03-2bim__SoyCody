@@ -25,7 +25,7 @@ def index(request):
     # se agregará la información que estará disponible
     # en el template
     pais=Pais.objects.all()
-    informacion_template = {'estudiantes': estudiantes, 'numero_estudiantes': len(estudiantes), 'paises':pais}
+    informacion_template = {'estudiantes': estudiantes, 'numero_estudiantes': len(estudiantes), 'pais':pais}
     return render(request, 'index.html', informacion_template)
 
 
