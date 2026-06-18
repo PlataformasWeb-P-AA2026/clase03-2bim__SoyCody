@@ -91,11 +91,19 @@ def eliminar_estudiante(request, id):
     estudiante.delete()
     return redirect(index)
 
-def obtener_paises(request):
-    
-    return 0
+def obtener_pais(request, id):
+    """
+        Obtener un país específico de la base de datos.
+    """
+    pais = Pais.objects.get(pk=id)
+    informacion_template = {'pais': pais}
+    return render(request, 'obtener_pais.html', informacion_template)
+
 
 def crear_pais(request):
+    """
+        Crear un nuevo país.
+    """
     print(request)
     if request.method=='POST':
         formulario = PaisForm(request.POST)
